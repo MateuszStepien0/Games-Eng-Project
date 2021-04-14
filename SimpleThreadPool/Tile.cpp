@@ -1,7 +1,9 @@
 #include "Tile.h"
 
-Tile::Tile(sf::Vector2f rectSize)
+Tile::Tile(sf::Vector2f rectSize, bool wall)
 {
+	isAWall = wall;
+
 	initialise();
 	rect.setSize(rectSize);
 }
@@ -24,5 +26,13 @@ void Tile::setPosition(sf::Vector2f pos)
 void Tile::initialise()
 {
 	rect.setSize(sf::Vector2f(32, 32));
-	rect.setFillColor(sf::Color(30, 30, 30));
+	if (isAWall)
+	{
+		rect.setFillColor(sf::Color(0, 0, 0));
+	}
+	else
+	{
+		rect.setFillColor(sf::Color(60, 60, 60));
+	}
+
 }

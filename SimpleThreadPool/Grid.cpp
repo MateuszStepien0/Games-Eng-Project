@@ -83,7 +83,7 @@ void Grid::initialise()
 		x = i % 30;
 		y = i / 30;
 
-		Tile* tile = new Tile(sf::Vector2f(32,32));
+		Tile* tile = new Tile(sf::Vector2f(32,32), false);
 		tile->setPosition(sf::Vector2f(33 * x, 33 * y));
 		tiles30.push_back(tile);
 	}
@@ -94,7 +94,7 @@ void Grid::initialise()
 		x = i % 100;
 		y = i / 100;
 
-		Tile* tile = new Tile(sf::Vector2f(9,9));
+		Tile* tile = new Tile(sf::Vector2f(9,9), false);
 		tile->setPosition(sf::Vector2f(10 * x, 10 * y));
 		tiles100.push_back(tile);
 	}
@@ -105,7 +105,7 @@ void Grid::initialise()
 		x = i % 1000;
 		y = i / 1000;
 
-		Tile* tile = new Tile(sf::Vector2f(1, 1));
+		Tile* tile = new Tile(sf::Vector2f(0, 0), false);
 		tile->setPosition(sf::Vector2f(x, y));
 		tiles1000.push_back(tile);
 	}*/
