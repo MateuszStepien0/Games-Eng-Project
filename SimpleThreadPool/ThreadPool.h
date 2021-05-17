@@ -1,19 +1,26 @@
-#ifndef THREAD_POOL_H
-#define THREAD_POOL_H
-
-#include <iostream>
+#pragma once
 #include <thread>
-#include <queue>
+#include <mutex>
 #include <functional>
+#include <vector>
+#include <queue>
+#include <memory>
+#include <condition_variable>
 
-class ThreadPool {
+class ThreadPool 
+{
 public:
 	ThreadPool();
 	~ThreadPool();
-	void addTask(std::function<void()>);
-private:
-	std::vector<std::thread> m_threads;
-	std::queue<std::function<void()>> m_tasks;
-};
-#endif // !THREAD_POOL_H
 
+	std::vector<std::thread> threadpool;
+	void addTask(std::function<void()> task);
+private:
+
+	std::mutex taskMutex;
+	std::queue<std::function<void()>> tasks;
+	std::condition_variable taskCondition;
+
+	bool terminatePool{ false };
+	static void infiniteSpin(ThreadPool& tp);
+};

@@ -17,7 +17,6 @@ protected:
 	void processEvents();
 
 private:
-	void initialise();
 	sf::RenderWindow m_window;
 
 	Grid grid;

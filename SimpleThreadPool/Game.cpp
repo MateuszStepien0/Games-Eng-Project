@@ -1,5 +1,4 @@
 #include "Game.h"
-#include "Game.h"
 
 static double const MS_PER_UPDATE = 10.0;
 
@@ -7,8 +6,6 @@ Game::Game()
 	: m_window(sf::VideoMode(990, 990, 32), "Lab 7", sf::Style::Default)
 {
 	m_window.setVerticalSyncEnabled(true);
-
-	initialise();
 }
 
 void Game::run()
@@ -58,9 +55,4 @@ void Game::processEvents()
 		}
 	}
 	grid.processEvents(event);
-}
-
-void Game::initialise()
-{
-
 }
